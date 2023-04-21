@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ name }} - Pokemon Info</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <h1>{{ name }}</h1>
+    <h2>Types:</h2>
+    <ul>
+        {% for type_data in types %}
+            <li><img src="{{ type_data.type.icon }}" alt="{{ type_data.type.name }}"> {{ type_data.type.name }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Weaknesses:</h2>
+    <ul>
+        {% for weakness in weaknesses %}
+            <li><i class="fas fa-exclamation-triangle"></i> {{ weakness }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Resistances:</h2>
+    <ul>
+        <li><i class="fas fa-shield-alt"></i> {{ resistance.type.name }}</li>
+    </ul>
+</body>
+</html>
